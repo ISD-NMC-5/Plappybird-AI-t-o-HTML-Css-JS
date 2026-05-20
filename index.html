@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flappy Bird: Cyberpunk Edition</title>
+  <meta name="description" content="Flappy Bird clone thuần HTML, CSS, và JS tối ưu nhất với hiệu năng 60+ FPS, giao diện Glassmorphism và âm thanh 8-bit Synth.">
+  <link rel="stylesheet" href="style.css">
+  <script src="javascript.js" defer></script>
+</head>
+<body>
+
+  <!-- Master Game Viewport -->
+  <main class="game-viewport">
+    
+    <!-- Render surface -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- UI Overlay Layer -->
+    <div class="ui-layer">
+      
+      <!-- Top HUD display -->
+      <header class="hud-top">
+        <div class="score-badge" id="current-score">0</div>
+        <div class="best-badge">
+          <span>🏆</span> BEST: <span class="best-val">0</span>
+        </div>
+      </header>
+
+      <!-- Bottom instruction (only visible when playing on desktop) -->
+      <footer class="desktop-controls-overlay">
+        <span class="kbd-key">SPACE</span> or click to Jump
+      </footer>
+    </div>
+
+    <!-- Start / Splash Screen overlay -->
+    <section class="screen-start" id="screen-start">
+      <div class="title-group">
+        <h1>FLAPPY<br>CYBER</h1>
+        <p>Neon Arcade Edition</p>
+      </div>
+
+      <!-- Character Skin Selector -->
+      <div class="skin-selector interactive">
+        <h3 class="selector-label">Chọn Trang Phục</h3>
+        <div class="skins-grid">
+          
+          <div class="skin-card active" data-skin="classic">
+            <div class="skin-preview" style="background: linear-gradient(135deg, #00f2fe, #0072ff); box-shadow: 0 0 10px rgba(0,242,254,0.5);"></div>
+            <span class="skin-name">CLASSIC</span>
+          </div>
+
+          <div class="skin-card" data-skin="neon">
+            <div class="skin-preview" style="background: linear-gradient(135deg, #fd2678, #9c27b0); box-shadow: 0 0 10px rgba(253,38,120,0.5);"></div>
+            <span class="skin-name">NEON</span>
+          </div>
+
+          <div class="skin-card" data-skin="gold">
+            <div class="skin-preview" style="background: linear-gradient(135deg, #ffde17, #e65100); box-shadow: 0 0 10px rgba(255,222,23,0.5);"></div>
+            <span class="skin-name">GOLDEN</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Play Trigger Button -->
+      <button class="btn-primary interactive" id="btn-play">
+        PLAY NOW <span>⚡</span>
+      </button>
+
+      <div class="tap-instruction">
+        <span class="key-badge">TAP SCREEN</span>
+        <span>to jump & start flying</span>
+      </div>
+    </section>
+
+    <!-- Game Over Screen overlay -->
+    <section class="screen-gameover hidden" id="screen-gameover">
+      <h2 id="congrats-text">GAME OVER</h2>
+      
+      <div class="glass-panel stats-card">
+        
+        <div class="stat-row">
+          <span class="stat-label">Score</span>
+          <span class="stat-val" id="final-score">0</span>
+        </div>
+
+        <div class="stat-row">
+          <span class="stat-label">Best</span>
+          <span class="stat-val best" id="final-best">0</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Custom Medals -->
+        <div class="medal-box">
+          <img id="medal-icon" class="medal-icon" src="" alt="Medal Badge" style="display: none;">
+          <div class="medal-text">
+            <h4 id="medal-name">No Medal</h4>
+            <p id="medal-desc">Get 10 points to unlock!</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Replay Options -->
+      <div class="action-buttons interactive">
+        <button class="btn-primary btn-restart" id="btn-restart">
+          RETRY <span>🔄</span>
+        </button>
+        <button class="btn-menu" id="btn-menu">
+          MENU
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
